@@ -1,6 +1,14 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import api from "../api/axios";
+import {
+  FiHome,
+  FiBox,
+  FiArrowDownCircle,
+  FiArrowUpCircle,
+  FiClock,
+  FiUsers,
+} from "react-icons/fi";
 
 export default function Layout({ children }) {
   const { user, logout } = useAuth();
@@ -42,31 +50,38 @@ export default function Layout({ children }) {
         <nav className="menu">
           {role === "admin" && (
             <Link className={isActive("/admin")} to="/admin">
-              Dashboard
+              <FiHome className="menu-icon" />
+              <span>Dashboard</span>
             </Link>
           )}
           {role === "petugas" && (
             <Link className={isActive("/gudang")} to="/gudang">
-              Dashboard
+              <FiHome className="menu-icon" />
+              <span>Dashboard</span>
             </Link>
           )}
           <Link className={isActive("/barang")} to="/barang">
-            Data Barang
+            <FiBox className="menu-icon" />
+            <span>Data Barang</span>
           </Link>
           <Link className={isActive("/barang-masuk")} to="/barang-masuk">
-            Barang Masuk
+            <FiArrowDownCircle className="menu-icon" />
+            <span>Barang Masuk</span>
           </Link>
           <Link className={isActive("/barang-keluar")} to="/barang-keluar">
-            Barang Keluar
+            <FiArrowUpCircle className="menu-icon" />
+            <span>Barang Keluar</span>
           </Link>
           <Link className={isActive("/riwayat")} to="/riwayat">
-            Riwayat Transaksi
-        </Link>
-        {role === "admin" && (
+            <FiClock className="menu-icon" />
+            <span>Riwayat Transaksi</span>
+          </Link>
+          {role === "admin" && (
             <Link className={isActive("/users")} to="/users">
-                Manajemen User
+              <FiUsers className="menu-icon" />
+              <span>Manajemen User</span>
             </Link>
-        )}
+          )}
         </nav>
       </aside>
 
