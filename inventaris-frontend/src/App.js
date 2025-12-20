@@ -14,8 +14,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Layout from "./components/Layout";
 import "./index.css";
 
-
-
 export default function App() {
   return (
     <AuthProvider>
